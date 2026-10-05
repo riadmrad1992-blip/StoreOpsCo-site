@@ -1,0 +1,58 @@
+{"name":"StoreOpsCo","version":1,
+"color":{"themes":[{"id":"dark","name":"Midnight (default)"},{"id":"light","name":"Paper"}],
+"tokens":[
+{"name":"ground","value":{"dark":"#0E141B","light":"#F3F1EC"},"usage":"Page and video background. Dark is the brand default for every video, thumbnail and listing image."},
+{"name":"ground-deep","value":{"dark":"#0A0E13","light":"#E9E6DF"},"usage":"Bottom of the ground gradient and letterbox areas."},
+{"name":"surface","value":{"dark":"#151D27","light":"#FFFFFF"},"usage":"Cards, tiles, platforms and price cards on ground."},
+{"name":"surface-raised","value":{"dark":"#1B2531","light":"#F8F6F1"},"usage":"Top stop of a card gradient; hovered or focused tiles."},
+{"name":"line","value":{"dark":"#26313D","light":"#D9D5CC"},"usage":"Card borders, table rules, platform edges when not lit."},
+{"name":"ink","value":{"dark":"#F3F1EC","light":"#0E141B"},"usage":"Headlines, numbers and body text on ground or surface."},
+{"name":"ink-muted","value":{"dark":"#8C97A3","light":"#56606B"},"usage":"Labels, kickers, captions, secondary numbers. Passes 4.5:1 on ground and surface in both themes."},
+{"name":"signal","value":{"dark":"#F27A2E","light":"#F27A2E"},"usage":"Signal Orange: the brand colour. Button fills, the Co in the wordmark, the recommended price, glow and the connecting beam. As a fill, put ground-dark ink on it."},
+{"name":"signal-text","value":{"dark":"#F27A2E","light":"#B24E0E"},"usage":"Orange used as text or thin strokes. Swaps to a darker orange on Paper so it keeps 4.5:1."},
+{"name":"on-signal","value":{"dark":"#0E141B","light":"#0E141B"},"usage":"Text and icons on a signal fill."},
+{"name":"ledger","value":{"dark":"#2FBF71","light":"#1E8A50"},"usage":"Ledger Green: profit, Healthy status, positive deltas."},
+{"name":"loss","value":{"dark":"#FF6B70","light":"#C6313A"},"usage":"Losing money, negative profit, struck-through old prices. A state colour: keep it small."},
+{"name":"caution","value":{"dark":"#F5A524","light":"#9A6A00"},"usage":"Below target status and review flags."},
+{"name":"paper","value":{"dark":"#F3F1EC","light":"#F3F1EC"},"usage":"Price tags and receipts drawn as physical objects in scenes; always carries ground-dark ink."},
+{"name":"kraft","value":{"dark":"#C89B6D","light":"#A87B4F"},"usage":"Parcel boxes in 3D scenes and the warm relief block on the cover."},
+{"name":"coin","value":{"dark":"#F2B33D","light":"#F2B33D"},"usage":"Coins in 3D scenes only (metallic material), never UI."},
+{"name":"engine-communicate","value":{"dark":"#7CB7FF","light":"#2F6FBF"},"usage":"Engine 01 Communicate (Customer Response Bank): its platform edge and label accent."},
+{"name":"engine-resolve","value":{"dark":"#E5484D","light":"#C6313A"},"usage":"Engine 02 Resolve (Refund & Dispute Manager): its platform edge and label accent."},
+{"name":"engine-profit","value":"{ledger}","usage":"Engine 03 Know your profit (Profit Pilot)."},
+{"name":"engine-automate","value":"{signal}","usage":"Engine 04 Automate (AI Assistant)."},
+{"name":"block-deep","value":{"dark":"#2A3746","light":"#1B2531"},"usage":"Deep slab on the cover and large graphic fields that must read against ground in both themes."}
+]},
+"type":{
+"families":{"display":"\"Plus Jakarta Sans\", Inter, system-ui, sans-serif","sans":"Inter, system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif"},
+"groups":[
+{"name":"Display","family":"display","styles":[
+{"name":"display-xl","fontSize":"120px","lineHeight":0.95,"fontWeight":800,"letterSpacing":"-0.035em"},
+{"name":"display","fontSize":"76px","lineHeight":1.0,"fontWeight":800,"letterSpacing":"-0.03em"},
+{"name":"headline","fontSize":"44px","lineHeight":1.08,"fontWeight":800,"letterSpacing":"-0.02em"},
+{"name":"title","fontSize":"24px","lineHeight":1.2,"fontWeight":800,"letterSpacing":"-0.01em"}]},
+{"name":"Text","family":"sans","styles":[
+{"name":"body","fontSize":"15px","lineHeight":"22px","fontWeight":500},
+{"name":"body-strong","fontSize":"15px","lineHeight":"22px","fontWeight":700},
+{"name":"caption","fontSize":"13px","lineHeight":"18px","fontWeight":600},
+{"name":"kicker","fontSize":"12px","lineHeight":"16px","fontWeight":700,"letterSpacing":"0.14em"},
+{"name":"numeral","fontSize":"32px","lineHeight":1.0,"fontWeight":800,"letterSpacing":"-0.02em"}]}]},
+"spacing":{"tokens":[
+{"name":"space-1","value":"4px","usage":"Icon to label gap."},
+{"name":"space-2","value":"8px","usage":"Pill padding, tight stacks."},
+{"name":"space-3","value":"12px","usage":"Gap between tiles in a grid."},
+{"name":"space-4","value":"16px","usage":"Card padding on phones."},
+{"name":"space-6","value":"24px","usage":"Card padding, gap between scene elements."},
+{"name":"space-8","value":"32px","usage":"Section padding inside a frame."},
+{"name":"space-12","value":"48px","usage":"Outer margin of a 1080px frame."},
+{"name":"space-16","value":"64px","usage":"Background grid pitch; outer margin of a 2000px listing image is 2x this."}]},
+"radius":{"tokens":[
+{"name":"radius-sm","value":"8px","usage":"Small tags, cube faces, inputs."},
+{"name":"radius-md","value":"14px","usage":"Tiles in tilted grids."},
+{"name":"radius-lg","value":"18px","usage":"Cards, price cards, video frames."},
+{"name":"radius-xl","value":"28px","usage":"Large listing-image cards at 2000px."},
+{"name":"radius-pill","value":"999px","usage":"Status badges, buttons, CTA pills."}]},
+"shadow":{"tokens":[
+{"name":"shadow-card","value":"0 24px 50px -24px rgba(0,0,0,.8)","usage":"Every card floating over ground; the depth that makes flat tiles feel 3D."},
+{"name":"shadow-tile","value":"0 18px 30px -18px rgba(0,0,0,.9)","usage":"Small tiles inside a tilted grid."},
+{"name":"glow-signal","value":"0 0 40px rgba(242,122,46,.45)","usage":"The one glowing thing per frame: the recommended price, the beam or the core."}]}}
