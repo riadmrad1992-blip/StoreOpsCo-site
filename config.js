@@ -31,7 +31,7 @@ window.CONFIG = {
 
   // The page where people join your email list (a sign-up page from your email tool).
   // Empty = the whole "Join the list" section is hidden.
-  EMAIL_SIGNUP_URL: "",
+  EMAIL_SIGNUP_URL: "https://storeopsco.kit.com/a3fb02a7c9",
 
   // An email address people can write to, for example "hello@yourdomain.com".
   // Empty = no email shown in the footer.
