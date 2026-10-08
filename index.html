@@ -18,7 +18,7 @@
 <meta name="twitter:description" content="Notion systems and free tools that help Etsy sellers price every product properly, answer buyers faster and keep track of refunds.">
 <meta name="twitter:image" content="https://riadmrad1992-blip.github.io/StoreOpsCo-site/og-image.png">
 
-<script>document.documentElement.className += ' js';</script>
+<script>(function(d){var c=' js';try{if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)c+=' no3d';else{var x=document.createElement('canvas');if(!(x.getContext('webgl')||x.getContext('experimental-webgl')))c+=' no3d';}}catch(e){c+=' no3d';}d.className+=c;})(document.documentElement);</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
@@ -29,6 +29,7 @@
 <a class="skip" href="#problem">Skip to content</a>
 
 <div class="progress-line" id="progress-line" aria-hidden="true"></div>
+<canvas id="world" aria-hidden="true"></canvas>
 
 <main>
 <!-- HERO: the 3D story (scene.js) with a static fallback -->
@@ -115,17 +116,19 @@
   </div>
 </header>
 
-<section class="section" id="problem" tabindex="-1" aria-labelledby="h-problem">
+<section class="section has-stage" id="problem" tabindex="-1" aria-labelledby="h-problem">
   <div class="wrap narrow reveal">
+    <div class="stage" data-stage="day" aria-hidden="true"></div>
     <p class="kicker">The problem</p>
     <h2 id="h-problem">Four things eat your day.</h2>
     <p class="lead">Buyer messages that need an answer. Refunds you have to keep track of. Fees that quietly shrink every sale. Prices set by guesswork. Each one takes time, and your time is a cost too. StoreOpsCo puts that work into one calm system, so you can see where your shop stands.</p>
   </div>
 </section>
 
-<section class="section" id="system" aria-labelledby="h-system">
+<section class="section has-stage" id="system" aria-labelledby="h-system">
   <div class="wrap">
-    <div class="reveal">
+    <div class="stage" data-stage="tower" aria-hidden="true"></div>
+    <div class="reveal stage-head">
       <p class="kicker">The system</p>
       <h2 id="h-system">Chaos snaps into <span class="sig">one connected system.</span></h2>
       <p class="lead">Four engines, one for each part of the back office.</p>
@@ -139,9 +142,10 @@
   </div>
 </section>
 
-<section class="section" id="products" aria-labelledby="h-products">
+<section class="section has-stage" id="products" aria-labelledby="h-products">
   <div class="wrap">
-    <div class="reveal">
+    <div class="stage" data-stage="pages" aria-hidden="true"></div>
+    <div class="reveal stage-head">
       <p class="kicker">Products</p>
       <h2 id="h-products">Notion templates for Etsy sellers.</h2>
       <p class="lead">Start with the one that fixes your biggest headache, or take them all in the bundle.</p>
@@ -181,8 +185,9 @@
   </div>
 </section>
 
-<section class="section" id="tool" aria-labelledby="h-tool">
+<section class="section has-stage" id="tool" aria-labelledby="h-tool">
   <div class="wrap">
+    <div class="stage" data-stage="tag" aria-hidden="true"></div>
     <div class="card tool tilt reveal">
       <div>
         <p class="kicker">Free tool</p>
@@ -194,8 +199,9 @@
   </div>
 </section>
 
-<section class="section" id="watch" aria-labelledby="h-watch">
+<section class="section has-stage" id="watch" aria-labelledby="h-watch">
   <div class="wrap narrow reveal">
+    <div class="stage" data-stage="screen" aria-hidden="true"></div>
     <p class="kicker">Watch</p>
     <h2 id="h-watch">A new back-office video every week.</h2>
     <p class="lead">One StoreOpsCo video every week, plus three Shorts, also on TikTok, Instagram and LinkedIn. Real numbers, shown step by step.</p>
@@ -203,16 +209,18 @@
   </div>
 </section>
 
-<section class="section" id="join" aria-labelledby="h-join" hidden>
+<section class="section has-stage" id="join" aria-labelledby="h-join" hidden>
   <div class="wrap narrow reveal">
+    <div class="stage" data-stage="mail" aria-hidden="true"></div>
     <p class="kicker">Join the list</p>
     <h2 id="h-join">New free tools and Etsy back-office tips.</h2>
     <p><a class="btn primary" href="#" data-link="EMAIL_SIGNUP_URL" rel="noopener">Join the email list</a></p>
   </div>
 </section>
 
-<section class="section" id="about" aria-labelledby="h-about">
+<section class="section has-stage" id="about" aria-labelledby="h-about">
   <div class="wrap narrow reveal">
+    <div class="stage" data-stage="core" aria-hidden="true"></div>
     <p class="kicker">About</p>
     <h2 id="h-about">About StoreOpsCo.</h2>
     <p class="lead">I'm Riad, founder of StoreOpsCo. I build Notion systems and free tools that help Etsy sellers price every product properly, answer buyers faster and keep track of refunds. I share how they work on the StoreOpsCo YouTube channel, with real numbers.</p>
@@ -237,6 +245,7 @@
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 <script src="config.js"></script>
 <script src="scene.js" defer></script>
+<script src="world.js" defer></script>
 <script src="app.js" defer></script>
 </body>
 </html>
