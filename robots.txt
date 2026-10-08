@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://riadmrad1992-blip.github.io/StoreOpsCo-site/sitemap.xml
+Sitemap: https://storeopsco.com/sitemap.xml
