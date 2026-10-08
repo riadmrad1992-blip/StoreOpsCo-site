@@ -1,6 +1,6 @@
 # StoreOpsCo website
 
-A one-page website for StoreOpsCo: a 3D story that scrolls (shop chaos snaps into one connected system), then the products, the free calculator, the YouTube channel and an About.
+A one-page website for StoreOpsCo: a 3D story that scrolls (shop chaos snaps into one connected system), then the products, the free calculator, the YouTube channel and an About. Every section below the story has its own small 3D scene that plays as you scroll.
 No installing, no building: it is plain files.
 
 ## See it on your laptop
@@ -36,4 +36,7 @@ Later changes to `main` republish by themselves.
 - Turn JavaScript off and reload: all the text, links and the still picture of the system should still be there.
 
 ## What is inside
-`index.html` (content), `styles.css` (look), `scene.js` (the 3D story), `app.js` (links, small effects), `config.js` (your links), `vendor/three.min.js` (three.js r128, MIT licence, kept here so nothing loads from the internet). Reduced-motion visitors and browsers without WebGL see the still picture instead of the 3D story.
+`index.html` (content), `styles.css` (look), `scene.js` (the 3D story), `world.js` (the 3D scenes beside each section), `app.js` (links, small effects), `config.js` (your links), `vendor/three.min.js` (three.js r128, MIT licence, kept here so nothing loads from the internet). Reduced-motion visitors and browsers without WebGL see the still picture instead of the 3D story, and the section scenes are left out completely (no empty gaps).
+
+## The section scenes
+Each section has an empty `<div class="stage" data-stage="...">` that marks where its scene sits: beside the text on laptops, above the text on phones. The names are `day` (the problem), `tower` (the system), `pages` (products), `tag` (calculator), `screen` (watch), `mail` (email list) and `core` (about). Delete a stage line in `index.html` to remove that scene. The scenes only draw while their section is on screen, and they lower their quality on slow devices.

@@ -167,3 +167,29 @@ h3{font-size:22px}
 .js .flip.run .to{opacity:1;transform:none;transition:opacity .3s ease,transform .7s var(--back)}
 .js .flip.run .flip-row:nth-of-type(3) .to{transition-delay:1s}
 @media (prefers-reduced-motion:reduce){.js .flip .to{opacity:1;transform:none}}
+
+/* ---------- Section 3D stages (world.js) ----------
+   A stage is an empty box that marks where a section's 3D scene sits.
+   Phones: a band above the section text. Laptops: beside the text, on the right.
+   No 3D (no WebGL, reduced motion, no JavaScript): stages take no space at all. */
+canvas#world{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;display:none}
+.world-on canvas#world{display:block}
+main,.footer{position:relative;z-index:1}
+.stage{display:none}
+.js:not(.no3d) .stage{display:block;position:relative;height:clamp(240px,68vw,340px);margin:0 auto 18px;pointer-events:none}
+.js:not(.no3d) .stage::after{content:"";position:absolute;inset:12% 18%;border-radius:50%;background:radial-gradient(closest-side,rgba(242,122,46,.10),transparent);z-index:-1}
+@media (min-width:960px){
+  .js:not(.no3d) .has-stage .wrap{position:relative}
+  .js:not(.no3d) .stage{position:absolute;margin:0;height:auto}
+  /* text-only sections: text on the left, scene on the right */
+  .js:not(.no3d) .has-stage .wrap.narrow{max-width:1120px;padding-right:min(46%,540px);min-height:440px;display:flex;flex-direction:column;justify-content:center}
+  .js:not(.no3d) .has-stage .wrap.narrow .stage{right:0;top:50%;width:min(46%,540px);height:460px;margin-top:-230px}
+  /* sections with cards: scene beside the heading, cards below */
+  .js:not(.no3d) .stage-head{padding-right:min(46%,540px);min-height:380px;display:flex;flex-direction:column;justify-content:center}
+  .js:not(.no3d) #system .stage,.js:not(.no3d) #products .stage{right:0;top:0;width:min(46%,540px);height:400px}
+  /* the calculator card shares its row with the price tag */
+  .js:not(.no3d) #tool .wrap{min-height:420px;display:flex;align-items:center}
+  .js:not(.no3d) #tool .tool{max-width:54%}
+  .js:not(.no3d) #tool .stage{right:0;top:50%;width:min(44%,520px);height:420px;margin-top:-210px}
+}
+@media (prefers-reduced-motion:reduce){.stage{display:none!important}canvas#world{display:none!important}}

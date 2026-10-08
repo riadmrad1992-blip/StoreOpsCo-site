@@ -138,7 +138,7 @@
     var s = document.createElement('script'); s.src = src; s.onload = cb; s.onerror = err; document.head.appendChild(s);
   }
   function begin() {
-    if (!webglOk()) return;
+    if (!webglOk()) { noWorld(); return; }
     loadScript('vendor/three.min.js', function () {
       try {
         hero.classList.add('is-3d');
@@ -150,7 +150,18 @@
         }
         window.StoreOpsScene.start({ hero: hero, canvas: canvas, onProgress: onProgress, onFail: fallBack, mouse: mouse });
       } catch (e) { fallBack(); }
-    }, fallBack);
+      startWorld(mouse || { x: 0, y: 0 });
+    }, function () { fallBack(); noWorld(); });
+  }
+  /* ---------- 9. The section scenes (world.js) ---------- */
+  function noWorld() { document.documentElement.classList.add('no3d'); document.documentElement.classList.remove('world-on'); }
+  function startWorld(mouse) {
+    var wc = $('#world'), stages = $$('.stage');
+    if (!wc || !stages.length || !window.StoreOpsWorld) { noWorld(); return; }
+    try {
+      document.documentElement.classList.add('world-on');
+      window.StoreOpsWorld.start({ canvas: wc, stages: stages, mouse: mouse, onFail: noWorld });
+    } catch (e) { noWorld(); }
   }
   // start after first paint, when the browser is idle
   function schedule() {
