@@ -9,7 +9,7 @@ window.CONFIG = {
   // The address of this website once it is live, for example
   // "https://yourname.github.io/storeopsco-site/" or "https://storeopsco.com/".
   // Used for the share image and search engines. Include the https:// and the last slash.
-  SITE_URL: "https://riadmrad1992-blip.github.io/StoreOpsCo-site/",
+  SITE_URL: "https://storeopsco.com/",
 
   // Your Etsy shop address. Empty = every product shows "Coming soon on Etsy".
   ETSY_SHOP_URL: "",
