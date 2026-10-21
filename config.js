@@ -27,7 +27,7 @@ window.CONFIG = {
   LINKEDIN_URL: "https://www.linkedin.com/in/riad-mrad-0980a9437",
 
   // The free Etsy price calculator. Already filled in. Change it only if the calculator moves.
-  CALCULATOR_URL: "https://riadmrad1992-blip.github.io/StoreOpsCo-calculator/",
+  CALCULATOR_URL: "https://storeopsco.com/etsy-price-calculator/",
 
   // The page where people join your email list (a sign-up page from your email tool).
   // Empty = the whole "Join the list" section is hidden.

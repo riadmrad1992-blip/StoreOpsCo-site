@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Etsy Price Calculator (Free): What Should Your Product Really Cost? | StoreOpsCo</title>
+  <meta name="description" content="Free Etsy price calculator. Enter your costs and get the price that covers Etsy fees, shipping, your time and your profit margin. US 2026 rates.">
+  <link rel="canonical" href="https://storeopsco.com/etsy-price-calculator/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://storeopsco.com/etsy-price-calculator/">
+  <meta property="og:title" content="Etsy Price Calculator (Free): What Should Your Product Really Cost?">
+  <meta property="og:description" content="Free Etsy price calculator. Enter your costs and get the price that covers Etsy fees, shipping, your time and your profit margin. US 2026 rates.">
+  <meta property="og:image" content="https://storeopsco.com/etsy-price-calculator/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Etsy price calculator by StoreOpsCo">
+  <meta property="og:site_name" content="StoreOpsCo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Etsy Price Calculator (Free): What Should Your Product Really Cost?">
+  <meta name="twitter:description" content="Free Etsy price calculator. Enter your costs and get the price that covers Etsy fees, shipping, your time and your profit margin. US 2026 rates.">
+  <meta name="twitter:image" content="https://storeopsco.com/etsy-price-calculator/og.png">
+  <meta name="twitter:image:alt" content="Etsy price calculator by StoreOpsCo">
+  <meta name="theme-color" content="#0E141B">
+  <meta name="color-scheme" content="dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Plus+Jakarta+Sans:wght@800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#result">Skip to the result</a>
+
+  <header class="site-header">
+    <p class="wordmark">StoreOps<span class="wordmark-co">Co</span></p>
+    <h1>Etsy price calculator</h1>
+    <p class="subhead">Enter your costs once. See the price that covers your time, shipping, Etsy fees, ads and refunds, and still leaves the profit you want.</p>
+  </header>
+
+  <main class="layout" id="calculator">
+    <form class="col-inputs" id="calc-form" novalidate autocomplete="off">
+
+      <!-- Your product -->
+      <section class="card" aria-labelledby="product-title">
+        <div class="card-head">
+          <h2 id="product-title">Your product</h2>
+          <button type="button" class="btn btn-small btn-secondary" id="example-toggle">Clear example</button>
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="productName">Product name <span class="optional">(optional)</span></label>
+            <div class="input-wrap">
+              <input id="productName" name="productName" type="text" maxlength="80" placeholder="e.g. Lavender wax melts" aria-describedby="productName-help">
+            </div>
+            <p class="helper" id="productName-help">Only for you. It stays on this device.</p>
+          </div>
+
+          <div class="field">
+            <label for="currency">Currency symbol</label>
+            <div class="input-wrap select-wrap">
+              <select id="currency" name="currency" aria-describedby="currency-help">
+                <option value="$">$ Dollar</option>
+                <option value="£">£ Pound</option>
+                <option value="€">€ Euro</option>
+              </select>
+            </div>
+            <p class="helper" id="currency-help">Changes the symbol only. It does not convert amounts or change the fee defaults.</p>
+          </div>
+        </div>
+
+        <fieldset class="materials">
+          <legend>Materials</legend>
+          <p class="helper" id="materials-help">Pack price ÷ pack quantity × the amount one product uses. <span data-cur>$</span>35 ÷ 4,500 g × 70 g = <span data-cur>$</span>0.54.</p>
+          <div id="material-lines" class="material-lines"></div>
+          <button type="button" class="btn btn-secondary btn-add" id="add-line">+ Add a material</button>
+        </fieldset>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="laborMinutes">Minutes per product</label>
+            <div class="input-wrap">
+              <input id="laborMinutes" name="laborMinutes" type="text" inputmode="decimal" aria-describedby="laborMinutes-help">
+              <span class="affix suffix" aria-hidden="true">min</span>
+            </div>
+            <p class="helper" id="laborMinutes-help">Hands-on time to make and pack one product.</p>
+          </div>
+
+          <div class="field">
+            <label for="hourlyRate">Hourly rate</label>
+            <div class="input-wrap">
+              <span class="affix prefix" data-cur aria-hidden="true">$</span>
+              <input id="hourlyRate" name="hourlyRate" type="text" inputmode="decimal" aria-describedby="hourlyRate-help">
+              <span class="affix suffix" aria-hidden="true">/hr</span>
+            </div>
+            <p class="helper" id="hourlyRate-help">Your time is a cost. Even <span data-cur>$</span>10/hr beats <span data-cur>$</span>0.</p>
+          </div>
+
+          <div class="field">
+            <label for="packaging">Packaging</label>
+            <div class="input-wrap">
+              <span class="affix prefix" data-cur aria-hidden="true">$</span>
+              <input id="packaging" name="packaging" type="text" inputmode="decimal" aria-describedby="packaging-help">
+            </div>
+            <p class="helper" id="packaging-help">Box, tissue, labels and stickers for one product.</p>
+          </div>
+
+          <div class="field">
+            <label for="shippingCost">Shipping cost</label>
+            <div class="input-wrap">
+              <span class="affix prefix" data-cur aria-hidden="true">$</span>
+              <input id="shippingCost" name="shippingCost" type="text" inputmode="decimal" aria-describedby="shippingCost-help">
+            </div>
+            <p class="helper" id="shippingCost-help">What you pay the carrier for one order.</p>
+          </div>
+
+          <div class="field">
+            <label for="overhead">Overhead</label>
+            <div class="input-wrap">
+              <span class="affix prefix" data-cur aria-hidden="true">$</span>
+              <input id="overhead" name="overhead" type="text" inputmode="decimal" aria-describedby="overhead-help">
+            </div>
+            <p class="helper" id="overhead-help">A share of tools, software and other running costs, per item.</p>
+          </div>
+
+          <div class="field">
+            <label for="currentPrice">Price you charge now <span class="optional">(optional)</span></label>
+            <div class="input-wrap">
+              <span class="affix prefix" data-cur aria-hidden="true">$</span>
+              <input id="currentPrice" name="currentPrice" type="text" inputmode="decimal" aria-describedby="currentPrice-help">
+            </div>
+            <p class="helper" id="currentPrice-help">Add it to see your real profit and margin at that price.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Etsy and selling settings -->
+      <section class="card card-settings">
+        <details id="settings" open>
+          <summary>
+            <h2>Etsy and selling settings</h2>
+            <span class="summary-sub">US 2026 defaults. Change them to match your shop.</span>
+            <span class="chevron" aria-hidden="true"></span>
+          </summary>
+
+          <p class="helper settings-note">Percentages: type plain numbers without the % sign: for 9.5%, type 9.5.</p>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="feePct">Fee %</label>
+              <div class="input-wrap">
+                <input id="feePct" name="feePct" type="text" inputmode="decimal" aria-describedby="feePct-help">
+                <span class="affix suffix" aria-hidden="true">%</span>
+              </div>
+              <p class="helper" id="feePct-help">The Etsy transaction fee plus payment processing, as one number (US default 9.5).</p>
+            </div>
+
+            <div class="field">
+              <label for="fixedFee">Fixed fee</label>
+              <div class="input-wrap">
+                <span class="affix prefix" data-cur aria-hidden="true">$</span>
+                <input id="fixedFee" name="fixedFee" type="text" inputmode="decimal" aria-describedby="fixedFee-help">
+              </div>
+              <p class="helper" id="fixedFee-help">The flat fees on every order: the <span data-cur>$</span>0.20 listing fee plus the <span data-cur>$</span>0.25 processing fee (default 0.45).</p>
+            </div>
+
+            <div class="field">
+              <label for="adsBufferPct">Ads buffer</label>
+              <div class="input-wrap">
+                <input id="adsBufferPct" name="adsBufferPct" type="text" inputmode="decimal" aria-describedby="adsBufferPct-help">
+                <span class="affix suffix" aria-hidden="true">%</span>
+              </div>
+              <p class="helper" id="adsBufferPct-help">A small set-aside for Etsy's Offsite Ads. If about 1 in 5 of your sales come from offsite ads, enter 3.</p>
+            </div>
+
+            <div class="field">
+              <label for="refundPct">Refund allowance</label>
+              <div class="input-wrap">
+                <input id="refundPct" name="refundPct" type="text" inputmode="decimal" aria-describedby="refundPct-help">
+                <span class="affix suffix" aria-hidden="true">%</span>
+              </div>
+              <p class="helper" id="refundPct-help">The share of sales you expect to refund (default 2).</p>
+            </div>
+
+            <div class="field">
+              <label for="targetMarginPct">Target margin</label>
+              <div class="input-wrap">
+                <input id="targetMarginPct" name="targetMarginPct" type="text" inputmode="decimal" aria-describedby="targetMarginPct-help">
+                <span class="affix suffix" aria-hidden="true">%</span>
+              </div>
+              <p class="helper" id="targetMarginPct-help">The share of the sale price you want left as profit. For a 30% margin, type 30.</p>
+            </div>
+
+            <div class="field">
+              <label for="discountPct">Typical discount</label>
+              <div class="input-wrap">
+                <input id="discountPct" name="discountPct" type="text" inputmode="decimal" aria-describedby="discountPct-help">
+                <span class="affix suffix" aria-hidden="true">%</span>
+              </div>
+              <p class="helper" id="discountPct-help">If you often run 10% off, enter 10.</p>
+            </div>
+
+            <div class="field">
+              <label for="shippingCharged">Shipping charged to buyer</label>
+              <div class="input-wrap">
+                <span class="affix prefix" data-cur aria-hidden="true">$</span>
+                <input id="shippingCharged" name="shippingCharged" type="text" inputmode="decimal" aria-describedby="shippingCharged-help">
+              </div>
+              <p class="helper" id="shippingCharged-help">What the buyer pays you for shipping on one order.</p>
+            </div>
+
+            <div class="field">
+              <label for="etsyAdsPerSale">Etsy Ads per sale</label>
+              <div class="input-wrap">
+                <span class="affix prefix" data-cur aria-hidden="true">$</span>
+                <input id="etsyAdsPerSale" name="etsyAdsPerSale" type="text" inputmode="decimal" aria-describedby="etsyAdsPerSale-help">
+              </div>
+              <p class="helper" id="etsyAdsPerSale-help">What you spend on Etsy Ads divided by your sales. <span data-cur>$</span>30 in ads and 60 sales = <span data-cur>$</span>0.50. Leave it empty if you don't run Etsy Ads.</p>
+            </div>
+
+            <div class="field">
+              <label for="marketingPerSale">Marketing per sale</label>
+              <div class="input-wrap">
+                <span class="affix prefix" data-cur aria-hidden="true">$</span>
+                <input id="marketingPerSale" name="marketingPerSale" type="text" inputmode="decimal" aria-describedby="marketingPerSale-help">
+              </div>
+              <p class="helper" id="marketingPerSale-help">Marketing you pay for outside Etsy: this month's spend for the product ÷ the number you sold this month. <span data-cur>$</span>30 on TikTok ads and 12 sales = <span data-cur>$</span>2.50.</p>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-small btn-secondary" id="reset-settings">Reset to US 2026 defaults</button>
+        </details>
+      </section>
+    </form>
+
+    <div class="col-results">
+      <div class="results-sticky">
+        <!-- Result -->
+        <section class="card card-result" id="result" aria-labelledby="result-title" tabindex="-1">
+          <div id="result-live" aria-live="polite" aria-atomic="true">
+            <h2 class="kicker" id="result-title">Recommended price</h2>
+            <p class="big-price" id="rec-price">–</p>
+            <p class="rec-basis" id="rec-basis"></p>
+            <p class="notice notice-error" id="rec-error" hidden></p>
+            <p class="notice" id="rec-note" hidden></p>
+
+            <div class="current" id="current-block" hidden>
+              <div class="current-head">
+                <p class="current-label" id="current-label"></p>
+                <span class="pill" id="health-pill"></span>
+              </div>
+              <div class="tiles">
+                <div class="tile">
+                  <p class="tile-label">Real profit</p>
+                  <p class="tile-value" id="real-profit"></p>
+                </div>
+                <div class="tile">
+                  <p class="tile-label">Margin</p>
+                  <p class="tile-value" id="real-margin"></p>
+                </div>
+                <div class="tile" id="gap-tile">
+                  <p class="tile-label">Price gap</p>
+                  <p class="tile-value" id="price-gap"></p>
+                </div>
+              </div>
+              <p class="gap-note" id="gap-note"></p>
+              <p class="more-products" id="more-products" hidden>Most shops sell more than one product. <span id="more-products-text">Check them all at once in Profit Pilot.</span></p>
+            </div>
+          </div>
+
+          <p class="helper no-current" id="no-current">Add the price you charge now to see your real profit at that price.</p>
+
+          <dl class="cost-summary">
+            <div class="cost-row cost-total">
+              <dt>Total cost per product</dt>
+              <dd id="total-cost"></dd>
+            </div>
+            <div class="cost-row">
+              <dt>Materials</dt>
+              <dd id="material-cost"></dd>
+            </div>
+            <div class="cost-row">
+              <dt>Your time</dt>
+              <dd id="labor-cost"></dd>
+            </div>
+          </dl>
+        </section>
+
+        <!-- Where the money goes -->
+        <section class="card card-receipt" aria-labelledby="receipt-title">
+          <h2 id="receipt-title">Where the money goes</h2>
+          <p class="helper" id="receipt-intro"></p>
+          <dl class="receipt" id="receipt"></dl>
+        </section>
+      </div>
+    </div>
+
+    <div class="next-stack">
+      <!-- Next step -->
+      <section class="card card-next" aria-labelledby="next-title">
+        <h2 id="next-title">Do this for every product, automatically</h2>
+        <p>This calculator prices one product. Profit Pilot prices every product in Notion, flags the ones that lose money, and keeps your Etsy fee settings in one place.</p>
+        <div class="next-actions" id="next-actions">
+          <a class="btn btn-primary" id="shop-link" href="#" target="_blank" rel="noopener" hidden>Track every product in Profit Pilot</a>
+          <a class="btn btn-secondary" id="video-link" href="#" target="_blank" rel="noopener" hidden>Watch how the formula works</a>
+        </div>
+      </section>
+
+      <!-- Email sign-up (plain link, hidden when EMAIL_SIGNUP_URL is empty) -->
+      <section class="card card-signup" id="signup-card" aria-labelledby="signup-title" hidden>
+        <h2 id="signup-title">New free tools and Etsy back-office tips</h2>
+        <p>A short email when something new is ready. Unsubscribe any time.</p>
+        <div class="next-actions">
+          <a class="btn btn-secondary" id="signup-link" href="#" target="_blank" rel="noopener">Get updates</a>
+        </div>
+        <p class="signup-note">Your calculator numbers are never sent.</p>
+      </section>
+    </div>
+
+    <!-- Guide, FAQ, video and email: below the calculator -->
+    <div class="info">
+      <section class="card info-card" aria-labelledby="howto-title">
+        <h2 id="howto-title">How to price a product on Etsy</h2>
+        <p>Start from your costs, not from a guess. Add up what one sale costs you: materials, your time, packaging, shipping and a share of overhead. Add Etsy's fixed fees. Then divide by what's left after Etsy's percentage fees and your profit margin.</p>
+        <p class="formula">Price = (costs + fixed fees) ÷ (1 − percentage fees − margin)</p>
+        <p>Example: a wax melt pack costs $10.39 to make and ship. With $0.45 in fixed fees, 14.5% in percentage fees and a 30% margin: (10.39 + 0.45) ÷ 0.555 = $19.53. Sold at $10, it loses $2.29 on every sale. At $19.53 it keeps $5.86.</p>
+      </section>
+
+      <section class="card info-card" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        <div class="faq">
+          <h3>What fees does Etsy charge in the US?</h3>
+          <p>A $0.20 listing fee, a 6.5% transaction fee on the item price plus shipping and gift wrap, and payment processing of 3% + $0.25 on the order total. Offsite Ads take 15% of an order that comes from an Etsy ad on another site, or 12% once a shop has made $10,000 in the last 12 months, capped at $100 per order.</p>
+
+          <h3>Does Etsy charge fees on shipping?</h3>
+          <p>Yes. The 6.5% transaction fee also applies to the shipping you charge, and payment processing applies to the whole order total.</p>
+
+          <h3>Why does the calculator add a buffer for ads and refunds?</h3>
+          <p>Some sales come through Offsite Ads, and some orders get refunded. A small buffer keeps those sales from turning into losses.</p>
+
+          <h3>What profit margin should I use?</h3>
+          <p>That's your choice. The example uses 30%, which means 30 cents of every dollar is profit after all costs and fees.</p>
+
+          <h3>Is the calculator free? Is my data saved?</h3>
+          <p>Yes, it's free. Your numbers are saved only in your own browser and never leave your device.</p>
+
+          <h3>Do these rates apply outside the US?</h3>
+          <p>No. Fees differ by country. Change the settings to your country's rates using <a href="https://www.etsy.com/legal/fees/" target="_blank" rel="noopener">Etsy's Fees &amp; Payments Policy</a>.</p>
+        </div>
+      </section>
+
+      <!-- Shown only when VIDEO_ID is set (script at the bottom of this page) -->
+      <section class="card info-card" id="video-section" aria-labelledby="video-title" hidden>
+        <h2 id="video-title">Watch how it works</h2>
+        <div class="video-box" id="video-box">
+          <button type="button" class="video-facade" id="video-facade" aria-label="Play the video: Watch how it works">
+            <img src="og.png" alt="" width="1200" height="630" loading="lazy" decoding="async">
+            <span class="video-play" aria-hidden="true"></span>
+          </button>
+        </div>
+        <p class="helper">The video loads from YouTube only when you press play.</p>
+      </section>
+
+      <section class="card info-card" aria-labelledby="email-title">
+        <h2 id="email-title">Get it by email</h2>
+        <p>Get pricing tips for Etsy sellers every week.</p>
+        <div class="next-actions">
+          <a class="btn btn-primary" href="https://storeopsco.kit.com/a3fb02a7c9" target="_blank" rel="noopener">Sign up</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>US Etsy rates, 2026. Fees change and differ by country: check <a href="https://www.etsy.com/legal/fees/" target="_blank" rel="noopener">Etsy's Fees &amp; Payments Policy</a> for yours. This calculator gives estimates from the numbers you enter.</p>
+    <p id="privacy-note">Nothing you type leaves your device. Your numbers are saved only in this browser.</p>
+    <p class="made-by">Made by <span class="wordmark-inline">StoreOps<span class="wordmark-co">Co</span></span></p>
+  </footer>
+
+  <a class="sticky-bar" id="sticky-bar" href="#result">
+    <span class="sticky-label">Recommended price</span>
+    <span class="sticky-price" id="sticky-price">–</span>
+    <span class="sticky-more">Details</span>
+  </a>
+
+  <script src="config.js"></script>
+  <script src="calc.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // YouTube video ID: the 11 characters after "v=" in the video's link.
+    // Leave it empty ('') to hide the "Watch how it works" section.
+    var VIDEO_ID = '';
+
+    // Click-to-load video: nothing loads from YouTube until play is pressed.
+    (function () {
+      var id = String(VIDEO_ID).trim();
+      if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+      var section = document.getElementById('video-section');
+      var box = document.getElementById('video-box');
+      var facade = document.getElementById('video-facade');
+      section.hidden = false;
+      facade.addEventListener('click', function () {
+        var frame = document.createElement('iframe');
+        frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+        frame.title = 'Watch how it works';
+        frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        frame.allowFullscreen = true;
+        frame.referrerPolicy = 'strict-origin-when-cross-origin';
+        box.replaceChild(frame, facade);
+        frame.focus();
+      });
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Etsy price calculator",
+    "url": "https://storeopsco.com/etsy-price-calculator/",
+    "description": "Free Etsy price calculator. Enter your costs and get the price that covers Etsy fees, shipping, your time and your profit margin. US 2026 rates.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "StoreOpsCo",
+      "url": "https://storeopsco.com/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What fees does Etsy charge in the US?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A $0.20 listing fee, a 6.5% transaction fee on the item price plus shipping and gift wrap, and payment processing of 3% + $0.25 on the order total. Offsite Ads take 15% of an order that comes from an Etsy ad on another site, or 12% once a shop has made $10,000 in the last 12 months, capped at $100 per order." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Etsy charge fees on shipping?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The 6.5% transaction fee also applies to the shipping you charge, and payment processing applies to the whole order total." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does the calculator add a buffer for ads and refunds?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Some sales come through Offsite Ads, and some orders get refunded. A small buffer keeps those sales from turning into losses." }
+      },
+      {
+        "@type": "Question",
+        "name": "What profit margin should I use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "That's your choice. The example uses 30%, which means 30 cents of every dollar is profit after all costs and fees." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the calculator free? Is my data saved?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, it's free. Your numbers are saved only in your own browser and never leave your device." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do these rates apply outside the US?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Fees differ by country. Change the settings to your country's rates using Etsy's Fees & Payments Policy." }
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
