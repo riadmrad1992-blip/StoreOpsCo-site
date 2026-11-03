@@ -665,12 +665,7 @@ details[open] .chevron::after { transform: translate(-50%, -30%) rotate(-135deg)
   padding: 12px 0;
   margin: -12px 0;
 }
-.signup-note {
-  margin-top: 12px;
-  font-size: 13px;
-}
-.card-next p,
-.card-signup p {
+.card-next p {
   margin-top: 8px;
   color: var(--ink-muted);
   max-width: 60ch;

@@ -263,7 +263,7 @@
                 </div>
               </div>
               <p class="gap-note" id="gap-note"></p>
-              <p class="more-products" id="more-products" hidden>Most shops sell more than one product. <span id="more-products-text">Check them all at once in Profit Pilot.</span></p>
+              <p class="more-products" id="more-products" hidden>Most shops sell more than one product. <span id="more-products-text">Profit Pilot (coming soon) will check them all at once.</span></p>
             </div>
           </div>
 
@@ -285,6 +285,11 @@
           </dl>
         </section>
 
+        <!-- Email sign-up: shown once a price has been calculated (see app.js). The box itself is in /signup-box.js -->
+        <section class="signup-wrap" id="signup-wrap" aria-label="Email sign-up" hidden>
+          <div data-signup-box></div>
+        </section>
+
         <!-- Where the money goes -->
         <section class="card card-receipt" aria-labelledby="receipt-title">
           <h2 id="receipt-title">Where the money goes</h2>
@@ -297,22 +302,11 @@
     <div class="next-stack">
       <!-- Next step -->
       <section class="card card-next" aria-labelledby="next-title">
-        <h2 id="next-title">Do this for every product, automatically</h2>
-        <p>This calculator prices one product. Profit Pilot prices every product in Notion, flags the ones that lose money, and keeps your Etsy fee settings in one place.</p>
+        <h2 id="next-title">Pricing every product at once: Profit Pilot (coming soon)</h2>
+        <p>This calculator prices one product. Profit Pilot, a Notion template coming soon, will price every product, flag the ones that lose money, and keep your Etsy fee settings in one place.</p>
         <div class="next-actions" id="next-actions">
-          <a class="btn btn-primary" id="shop-link" href="#" target="_blank" rel="noopener" hidden>Track every product in Profit Pilot</a>
           <a class="btn btn-secondary" id="video-link" href="#" target="_blank" rel="noopener" hidden>Watch how the formula works</a>
         </div>
-      </section>
-
-      <!-- Email sign-up (plain link, hidden when EMAIL_SIGNUP_URL is empty) -->
-      <section class="card card-signup" id="signup-card" aria-labelledby="signup-title" hidden>
-        <h2 id="signup-title">New free tools and Etsy back-office tips</h2>
-        <p>A short email when something new is ready. Unsubscribe any time.</p>
-        <div class="next-actions">
-          <a class="btn btn-secondary" id="signup-link" href="#" target="_blank" rel="noopener">Get updates</a>
-        </div>
-        <p class="signup-note">Your calculator numbers are never sent.</p>
       </section>
     </div>
 
@@ -352,21 +346,14 @@
       <section class="card info-card" id="video-section" aria-labelledby="video-title" hidden>
         <h2 id="video-title">Watch how it works</h2>
         <div class="video-box" id="video-box">
-          <button type="button" class="video-facade" id="video-facade" aria-label="Play the video: Watch how it works">
-            <img src="og.png" alt="" width="1200" height="630" loading="lazy" decoding="async">
+          <button type="button" class="video-facade" id="video-facade" aria-label="Play the video: Etsy Price Calculator (Free): What Should Your Product Really Cost?">
+            <img id="video-thumb" src="og.png" alt="" width="480" height="270" loading="lazy" decoding="async">
             <span class="video-play" aria-hidden="true"></span>
           </button>
         </div>
         <p class="helper">The video loads from YouTube only when you press play.</p>
       </section>
 
-      <section class="card info-card" aria-labelledby="email-title">
-        <h2 id="email-title">Get it by email</h2>
-        <p>Get pricing tips for Etsy sellers every week.</p>
-        <div class="next-actions">
-          <a class="btn btn-primary" href="https://storeopsco.kit.com/a3fb02a7c9" target="_blank" rel="noopener">Sign up</a>
-        </div>
-      </section>
     </div>
   </main>
 
@@ -385,10 +372,11 @@
   <script src="config.js"></script>
   <script src="calc.js"></script>
   <script src="app.js"></script>
+  <script src="../signup-box.js"></script>
   <script>
     // YouTube video ID: the 11 characters after "v=" in the video's link.
     // Leave it empty ('') to hide the "Watch how it works" section.
-    var VIDEO_ID = '';
+    var VIDEO_ID = 'BeY-vG3XrxE';
 
     // Click-to-load video: nothing loads from YouTube until play is pressed.
     (function () {
@@ -398,10 +386,11 @@
       var box = document.getElementById('video-box');
       var facade = document.getElementById('video-facade');
       section.hidden = false;
+      document.getElementById('video-thumb').src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg';
       facade.addEventListener('click', function () {
         var frame = document.createElement('iframe');
         frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
-        frame.title = 'Watch how it works';
+        frame.title = 'Etsy Price Calculator (Free): What Should Your Product Really Cost?';
         frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
         frame.allowFullscreen = true;
         frame.referrerPolicy = 'strict-origin-when-cross-origin';

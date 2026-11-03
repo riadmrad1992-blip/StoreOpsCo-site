@@ -411,8 +411,20 @@
     var errorEl = $('rec-error');
     var noteEl = $('rec-note');
     noteEl.hidden = true;
+    // Until some cost is entered there is nothing to price (the fixed fees
+    // alone would show a meaningless price), so show a dash and a prompt.
+    var hasCosts = Calc.roundTo(r.totalCost, 2) > 0;
+    var calculated = hasCosts && !r.error && r.recommendedPrice > 0;
+    $('signup-wrap').hidden = !calculated;
 
-    if (r.error === 'IMPOSSIBLE') {
+    if (!hasCosts) {
+      priceEl.hidden = false;
+      errorEl.hidden = true;
+      priceEl.textContent = '–';
+      $('rec-basis').hidden = false;
+      setText('rec-basis', 'Enter your costs to see your price');
+      setText('sticky-price', '–');
+    } else if (r.error === 'IMPOSSIBLE') {
       priceEl.hidden = true;
       $('rec-basis').hidden = true;
       errorEl.hidden = false;
@@ -434,9 +446,10 @@
 
     // At the current price
     var current = $('current-block');
-    current.hidden = !r.hasCurrentPrice;
-    $('no-current').hidden = r.hasCurrentPrice;
-    if (r.hasCurrentPrice) {
+    var showCurrent = r.hasCurrentPrice && hasCosts;
+    current.hidden = !showCurrent;
+    $('no-current').hidden = showCurrent;
+    if (showCurrent) {
       setText('current-label', 'At your price of ' + money(r.currentPrice));
       var pill = $('health-pill');
       pill.textContent = r.health;
@@ -466,14 +479,18 @@
 
     // Extra line for shops that are losing money or below target
     var more = $('more-products');
-    more.hidden = !(r.hasCurrentPrice && (r.healthKey === 'losing' || r.healthKey === 'below'));
+    more.hidden = !(showCurrent && (r.healthKey === 'losing' || r.healthKey === 'below'));
 
     // Costs
     setText('total-cost', money(r.totalCost));
     setText('material-cost', money(r.materialCost));
     setText('labor-cost', money(r.laborCost));
 
-    renderReceipt(r);
+    if (hasCosts) renderReceipt(r);
+    else {
+      $('receipt').innerHTML = '';
+      setText('receipt-intro', 'Enter your costs above to see where the money goes.');
+    }
   }
 
   function update() {
@@ -495,27 +512,14 @@
     if (ok) link.href = url.trim();
     else link.parentNode.removeChild(link); // never ship a dead link
   }
-  setupLink('shop-link', CONFIG.SHOP_URL);
   setupLink('video-link', CONFIG.VIDEO_URL);
   Array.prototype.forEach.call(document.querySelectorAll('#next-actions a'), function (a) { a.hidden = false; });
   if (!$('next-actions').children.length) $('next-actions').hidden = true;
 
   function validUrl(url) { return typeof url === 'string' && /^https?:\/\//i.test(url.trim()); }
 
-  if (validUrl(CONFIG.SHOP_URL)) {
-    var moreText = $('more-products-text');
-    var moreLink = document.createElement('a');
-    moreLink.href = CONFIG.SHOP_URL.trim();
-    moreLink.target = '_blank';
-    moreLink.rel = 'noopener';
-    moreLink.textContent = moreText.textContent;
-    moreText.parentNode.replaceChild(moreLink, moreText);
-  }
-
-  if (validUrl(CONFIG.EMAIL_SIGNUP_URL)) {
-    $('signup-link').href = CONFIG.EMAIL_SIGNUP_URL.trim();
-    $('signup-card').hidden = false;
-  }
+  // Profit Pilot is not on sale yet, so it is never linked from here.
+  // The email sign-up box comes from /signup-box.js.
 
   // Optional privacy-friendly visit counter: nothing loads unless a source is set.
   if (validUrl(CONFIG.ANALYTICS_SCRIPT_SRC)) {

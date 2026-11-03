@@ -44,26 +44,36 @@ a{color:inherit}
 .wordmark,.wm{font-family:var(--font-head);font-weight:800;letter-spacing:-.035em;line-height:1}
 .wordmark span,.wm span{color:var(--signal)}
 
-/* ---------- Hero (static version first) ---------- */
-.hero{position:relative}
-.hero-pin{position:relative;min-height:100vh;min-height:100svh;display:grid;align-items:center;gap:8px;padding:56px 20px 40px;max-width:1180px;margin:0 auto}
-.hero-copy{position:relative;z-index:2}
-.hero-copy .wordmark{font-size:clamp(48px,11vw,104px);text-shadow:0 0 40px rgba(242,122,46,.45)} /* the one glow */
-.tagline{font:700 clamp(18px,3.2vw,26px)/1.3 var(--font-body);margin:18px 0 26px}
-.hero-copy .kicker{margin:26px 0 0}
+/* ---------- Intro: headline, calculator button, sign-up, still picture ---------- */
+.intro{position:relative;z-index:1}
+.intro:focus{outline:none}
+.intro-pin{display:grid;align-items:center;gap:28px;padding:40px 16px 48px;max-width:1180px;margin:0 auto}
+.intro-copy{position:relative;z-index:2}
+.intro-copy .wordmark{font-size:clamp(40px,9vw,72px);margin:0 0 18px;text-shadow:0 0 40px rgba(242,122,46,.45)} /* the one glow */
+.headline{font-size:clamp(28px,4.6vw,46px);line-height:1.12;margin:0 0 26px;max-width:20ch}
+.btn.big{min-height:58px;padding:0 32px;font-size:18px}
+.intro-signup{margin-top:22px;max-width:520px}
 .hero-static{display:flex;justify-content:center}
 .tower{width:min(100%,460px);height:auto;overflow:visible}
-.hero-static{order:2}
-canvas#scene,.story,.flash{display:none}
-@media (min-width:880px){
-  .hero-pin{grid-template-columns:1.1fr .9fr;gap:40px}
-  .hero-static{order:2}
+@media (max-width:700px){
+  .intro .btn.big{width:100%}
+  .tower{width:min(100%,320px)}
 }
+@media (min-width:880px){
+  .intro-pin{grid-template-columns:1.15fr .85fr;gap:48px;min-height:min(100svh,860px);padding:56px 24px}
+}
+
+/* ---------- Hero: the 3D story. Takes no space until the scene is running ---------- */
+.hero{position:relative}
+.hero:not(.is-3d) .hero-pin{display:none}
+.hero-copy{position:relative;z-index:2}
+.hero-copy .wordmark{font-size:clamp(48px,11vw,104px);margin:0}
+.tagline{font:700 clamp(18px,3.2vw,26px)/1.3 var(--font-body);margin:18px 0 26px}
+canvas#scene,.story,.flash{display:none}
 
 /* ---------- Hero (3D mode, only when the scene is running) ---------- */
 .hero.is-3d{height:500vh}
 .hero.is-3d .hero-pin{position:sticky;top:0;height:100vh;height:100svh;min-height:0;max-width:none;margin:0;padding:0;display:block;overflow:hidden}
-.hero.is-3d .hero-static{display:none}
 .hero.is-3d canvas#scene{display:block;position:absolute;inset:0;width:100%;height:100%}
 .hero.is-3d .story::before{content:"";position:absolute;left:0;right:0;top:0;height:46%;background:linear-gradient(180deg,rgba(10,14,19,.85),rgba(10,14,19,.55) 55%,rgba(10,14,19,0));opacity:var(--scrim,1)}
 .hero.is-3d .story{display:block;position:absolute;inset:0;pointer-events:none;color:var(--ink)}
@@ -75,7 +85,6 @@ canvas#scene,.story,.flash{display:none}
 .hero.is-3d .hero-copy .wordmark{font-size:clamp(44px,calc(var(--u)*11),120px)}
 .hero.is-3d .tagline{margin:calc(var(--u)*1.6) 0 calc(var(--u)*2.4)}
 .hero.is-3d .btn-row{justify-content:center}
-.hero.is-3d .hero-copy .kicker{margin-top:calc(var(--u)*2.4)}
 
 .o{position:absolute;margin:0;opacity:0;transform:translateY(calc(var(--u)*2));transition:opacity .45s ease,transform .6s var(--ease-out)}
 .o.on{opacity:1;transform:none}
@@ -96,7 +105,7 @@ canvas#scene,.story,.flash{display:none}
 .label .line{display:block;font:500 calc(var(--u)*2.7)/1.4 var(--font-body);color:#C7CED6;margin-top:calc(var(--u)*.6)}
 
 /* ---------- Sections ---------- */
-.section{padding:clamp(64px,10vw,120px) 20px;scroll-margin-top:0}
+.section{padding:clamp(64px,10vw,120px) 16px;scroll-margin-top:0}
 .section:focus{outline:none}
 .wrap{max-width:1120px;margin:0 auto}
 .wrap.narrow{max-width:760px}
@@ -116,9 +125,20 @@ h3{font-size:22px}
 .product{display:flex;flex-direction:column}
 .product h3{margin-bottom:8px}
 .price{font:800 40px/1 var(--font-head);letter-spacing:-.03em;font-variant-numeric:tabular-nums;margin:0 0 14px!important}
+.price .planned{display:block;font:600 12.5px/1.3 var(--font-body);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
 .price.small{font-size:17px;font-family:var(--font-body);font-weight:700;color:var(--muted);line-height:1.4;padding-top:10px}
 .buy{margin:auto 0 0!important;padding-top:18px}
 .soon{display:inline-block;color:var(--muted);font-weight:600;border:1px dashed var(--line);border-radius:999px;padding:12px 18px}
+/* latest videos */
+.grid.videos{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card.video{padding:0;--c:var(--signal)}
+.video a{display:flex;flex-direction:column;height:100%;color:var(--ink);text-decoration:none}
+.video img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--ground)}
+.video .vt{display:block;padding:16px 20px 6px;font:700 17px/1.35 var(--font-body)}
+.video .vw{display:block;margin-top:auto;padding:6px 20px 20px;color:var(--muted);font-size:14px;font-weight:600}
+.video a:hover .vt,.video a:focus-visible .vt{color:var(--signal)}
+.video a:focus-visible{outline-offset:-3px;border-radius:18px}
+.watch-more{margin:28px 0 0}
 .note{color:var(--muted);font-size:15px;margin:26px 0 0;max-width:70ch}
 .tool{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;padding:clamp(28px,5vw,48px);--c:var(--signal)}
 .tool h2{margin-bottom:12px}
@@ -138,13 +158,15 @@ h3{font-size:22px}
 .flip-row:nth-of-type(3) .from{color:var(--ink);text-decoration:none;text-shadow:0 0 40px rgba(242,122,46,.45)} /* the one glow */
 .fine{font-size:13px;color:var(--muted);margin:6px 0 0!important}
 
-.footer{border-top:1px solid var(--line);padding:36px 20px calc(36px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:15px}
+.footer{border-top:1px solid var(--line);padding:36px 16px calc(36px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:15px}
 .foot{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center}
 .foot p{margin:0}
 .wm.small{font-size:22px;color:var(--ink)}
 .social{list-style:none;margin:0 0 0 auto;padding:0;display:flex;flex-wrap:wrap;gap:6px 22px}
 .social a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);text-decoration:none;font-weight:600}
 .social a:hover{color:var(--signal);text-decoration:underline}
+.foot-link{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);font-weight:600}
+.foot-link:hover{color:var(--signal)}
 
 /* ---------- Page-level effects (cheap) ---------- */
 .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s var(--ease-out),transform .55s var(--ease-out)}
@@ -186,7 +208,7 @@ main,.footer{position:relative;z-index:1}
   .js:not(.no3d) .has-stage .wrap.narrow .stage{right:0;top:50%;width:min(46%,540px);height:460px;margin-top:-230px}
   /* sections with cards: scene beside the heading, cards below */
   .js:not(.no3d) .stage-head{padding-right:min(46%,540px);min-height:380px;display:flex;flex-direction:column;justify-content:center}
-  .js:not(.no3d) #system .stage,.js:not(.no3d) #products .stage{right:0;top:0;width:min(46%,540px);height:400px}
+  .js:not(.no3d) #system .stage,.js:not(.no3d) #products .stage,.js:not(.no3d) #watch .stage{right:0;top:0;width:min(46%,540px);height:400px}
   /* the calculator card shares its row with the price tag */
   .js:not(.no3d) #tool .wrap{min-height:420px;display:flex;align-items:center}
   .js:not(.no3d) #tool .tool{max-width:54%}

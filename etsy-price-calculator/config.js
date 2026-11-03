@@ -2,15 +2,13 @@
  * YOUR LINKS
  *
  * Paste your links between the quotes, then save this file.
- *   SHOP_URL:  your Profit Pilot listing on Etsy (or your shop)
+ *   SHOP_URL:  not used for now (Profit Pilot is coming soon, so the page never links to it)
  *   VIDEO_URL: the YouTube video that explains the formula
  *
- *   EMAIL_SIGNUP_URL:     link to the sign-up page from your email tool (shows a "Get updates" card)
+ *   EMAIL_SIGNUP_URL:     link to the sign-up page from your email tool (the button in the email sign-up box)
  *   ANALYTICS_SCRIPT_SRC: address of a privacy-friendly analytics script (turns the visit counter on)
  *   ANALYTICS_ATTRS:      extra settings for that script, e.g. { "data-token": "abc123" }
  *   ANALYTICS_NOTE:       the sentence added to the privacy note when analytics is on
- *
- * Example:  SHOP_URL: "https://www.etsy.com/listing/123456789/profit-pilot",
  *
  * If a value is left empty (""), nothing is shown or loaded, so the page never
  * shows a dead link. Keep the quotes and the comma at the end of each line.

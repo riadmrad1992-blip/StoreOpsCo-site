@@ -35,8 +35,14 @@ Later changes to `main` republish by themselves.
 - Look at it with the sound off (there is no sound, so nothing should depend on it).
 - Turn JavaScript off and reload: all the text, links and the still picture of the system should still be there.
 
+## Add a new video
+Open `config.js`. At the top is the `VIDEOS` list. Copy the first line, paste it above, and change the id and title. The homepage shows the first 3.
+
+## Swap the email button for a Kit form
+Open `signup-box.js`. Paste Kit's embed code between the two backticks on the `KIT_EMBED_CODE` line. The form then replaces the "Sign up free" button on the homepage and the calculator.
+
 ## What is inside
 `index.html` (content), `styles.css` (look), `scene.js` (the 3D story), `world.js` (the 3D scenes beside each section), `app.js` (links, small effects), `config.js` (your links), `vendor/three.min.js` (three.js r128, MIT licence, kept here so nothing loads from the internet). Reduced-motion visitors and browsers without WebGL see the still picture instead of the 3D story, and the section scenes are left out completely (no empty gaps).
 
 ## The section scenes
-Each section has an empty `<div class="stage" data-stage="...">` that marks where its scene sits: beside the text on laptops, above the text on phones. The names are `day` (the problem), `tower` (the system), `pages` (products), `tag` (calculator), `screen` (watch), `mail` (email list) and `core` (about). Delete a stage line in `index.html` to remove that scene. The scenes only draw while their section is on screen, and they lower their quality on slow devices.
+Each section has an empty `<div class="stage" data-stage="...">` that marks where its scene sits: beside the text on laptops, above the text on phones. The names are `day` (the problem), `tower` (the system), `pages` (products), `tag` (calculator), `screen` (watch) and `core` (about). Delete a stage line in `index.html` to remove that scene. The scenes only draw while their section is on screen, and they lower their quality on slow devices. Phones and touch devices get the still picture instead of any 3D, so the page stays fast.

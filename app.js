@@ -16,22 +16,35 @@
     var li = a.closest('li');
     if (li && li.parentNode.id === 'social') li.hidden = !ok;
   });
-  var shop = isUrl(val('ETSY_SHOP_URL'));
-  $$('[data-soon],[data-soon-note]').forEach(function (el) { el.hidden = shop; });
-  if (isUrl(val('EMAIL_SIGNUP_URL'))) $('#join').hidden = false;
   var mail = val('CONTACT_EMAIL');
   if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
     var cl = $('#contact-link'); cl.href = 'mailto:' + mail; cl.textContent = mail; cl.parentNode.hidden = false;
+  }
+
+  /* ---------- 1b. Latest videos (the VIDEOS list in config.js) ---------- */
+  var list = $('#video-list');
+  if (list) {
+    (Array.isArray(window.VIDEOS) ? window.VIDEOS : []).filter(function (v) {
+      return v && /^[A-Za-z0-9_-]{11}$/.test(String(v.id || '').trim()) && String(v.title || '').trim();
+    }).slice(0, 3).forEach(function (v) {
+      var id = String(v.id).trim();
+      var li = document.createElement('li'); li.className = 'card video tilt reveal';
+      var a = document.createElement('a');
+      a.href = 'https://www.youtube.com/watch?v=' + id; a.target = '_blank'; a.rel = 'noopener';
+      var img = document.createElement('img');
+      img.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg'; img.alt = '';
+      img.width = 480; img.height = 270; img.loading = 'lazy'; img.decoding = 'async';
+      var t = document.createElement('span'); t.className = 'vt'; t.textContent = String(v.title).trim();
+      var w = document.createElement('span'); w.className = 'vw'; w.textContent = 'Watch on YouTube';
+      a.appendChild(img); a.appendChild(t); a.appendChild(w); li.appendChild(a); list.appendChild(li);
+    });
+    list.hidden = !list.children.length;
   }
 
   /* ---------- 2. Share tags and structured data ---------- */
   var site = val('SITE_URL');
   if (isUrl(site)) {
     if (site.slice(-1) !== '/') site += '/';
-    var head = document.head;
-    var add = function (tag, attrs) { var e = document.createElement(tag); for (var k in attrs) e.setAttribute(k, attrs[k]); head.appendChild(e); };
-    add('link', { rel: 'canonical', href: site });
-    add('meta', { property: 'og:url', content: site });
     $$('meta[property="og:image"],meta[name="twitter:image"]').forEach(function (m) { m.setAttribute('content', site + 'og-image.png'); });
   }
   try {
@@ -103,7 +116,8 @@
 
   /* ---------- 8. The 3D hero ---------- */
   var hero = $('#top'), canvas = $('#scene'), copy = $('#hero-copy'), story = $('#story'), flash = $('#flash');
-  if (reduced || !hero || !canvas) return;          // reduced motion: keep the static hero, load nothing
+  // reduced motion, phones and touch devices (no3d, set in <head>): keep the still picture, load nothing
+  if (reduced || !hero || !canvas || document.documentElement.classList.contains('no3d')) { noWorld(); return; }
 
   var ovs = $$('#story [data-in]').map(function (el) {
     var out = el.getAttribute('data-out');
@@ -139,7 +153,12 @@
   }
   function begin() {
     if (!webglOk()) { noWorld(); return; }
-    loadScript('vendor/three.min.js', function () {
+    // three.js, then the two scene scripts, one after the other
+    var load3d = function (files, cb, err) {
+      if (!files.length) return cb();
+      loadScript(files[0], function () { load3d(files.slice(1), cb, err); }, err);
+    };
+    load3d(['vendor/three.min.js', 'scene.js', 'world.js'], function () {
       try {
         hero.classList.add('is-3d');
         var mouse = { x: 0, y: 0 };
