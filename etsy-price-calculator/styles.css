@@ -768,7 +768,19 @@ details[open] .chevron::after { transform: translate(-50%, -30%) rotate(-135deg)
   border-color: transparent transparent transparent var(--on-signal);
 }
 .video-facade:hover .video-play { background: #F58A44; }
-.video-box + .helper { margin-top: 10px; }
+.video-box + .helper,
+.video-watch + .helper { margin-top: 10px; }
+.video-watch { margin-top: 14px; font-weight: 600; }
+
+.info-card .fee-list { max-width: 70ch; }
+.info-sub {
+  margin-top: 24px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.info-card > .fee-source { margin-top: 20px; }
 
 /* ---------- footer ---------- */
 

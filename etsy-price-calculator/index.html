@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Etsy Price Calculator (Free): What Should Your Product Really Cost? | StoreOpsCo</title>
-  <meta name="description" content="Free Etsy price calculator. Enter your costs and get the price that covers Etsy fees, shipping, your time and your profit margin. US 2026 rates.">
+  <title>Etsy Fee &amp; Price Calculator (2026): What Etsy Takes and What to Charge</title>
+  <meta name="description" content="Free Etsy fee calculator for 2026. See exactly what Etsy takes per sale (listing, transaction, payment fees) and the price you need to make a profit.">
   <link rel="canonical" href="https://storeopsco.com/etsy-price-calculator/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://storeopsco.com/etsy-price-calculator/">
-  <meta property="og:title" content="Etsy Price Calculator (Free): What Should Your Product Really Cost?">
-  <meta property="og:description" content="Free Etsy price calculator. Enter your costs and get the price that covers Etsy fees, shipping, your time and your profit margin. US 2026 rates.">
+  <meta property="og:title" content="Etsy Fee &amp; Price Calculator (2026): What Etsy Takes and What to Charge">
+  <meta property="og:description" content="Free Etsy fee calculator for 2026. See exactly what Etsy takes per sale (listing, transaction, payment fees) and the price you need to make a profit.">
   <meta property="og:image" content="https://storeopsco.com/etsy-price-calculator/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Etsy price calculator by StoreOpsCo">
+  <meta property="og:image:alt" content="Etsy fee and price calculator by StoreOpsCo">
   <meta property="og:site_name" content="StoreOpsCo">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Etsy Price Calculator (Free): What Should Your Product Really Cost?">
-  <meta name="twitter:description" content="Free Etsy price calculator. Enter your costs and get the price that covers Etsy fees, shipping, your time and your profit margin. US 2026 rates.">
+  <meta name="twitter:title" content="Etsy Fee &amp; Price Calculator (2026): What Etsy Takes and What to Charge">
+  <meta name="twitter:description" content="Free Etsy fee calculator for 2026. See exactly what Etsy takes per sale (listing, transaction, payment fees) and the price you need to make a profit.">
   <meta name="twitter:image" content="https://storeopsco.com/etsy-price-calculator/og.png">
-  <meta name="twitter:image:alt" content="Etsy price calculator by StoreOpsCo">
+  <meta name="twitter:image:alt" content="Etsy fee and price calculator by StoreOpsCo">
   <meta name="theme-color" content="#0E141B">
   <meta name="color-scheme" content="dark">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,7 @@
 
   <header class="site-header">
     <p class="wordmark">StoreOps<span class="wordmark-co">Co</span></p>
-    <h1>Etsy price calculator</h1>
+    <h1>Etsy Fee &amp; Price Calculator (2026)</h1>
     <p class="subhead">Enter your costs once. See the price that covers your time, shipping, Etsy fees, ads and refunds, and still leaves the profit you want.</p>
   </header>
 
@@ -310,36 +310,57 @@
       </section>
     </div>
 
-    <!-- Guide, FAQ, video and email: below the calculator -->
+    <!-- Fees, how it works, FAQ, video: below the calculator. Plain HTML so search engines can read it. -->
     <div class="info">
+      <section class="card info-card" aria-labelledby="fees-title">
+        <h2 id="fees-title">How much does Etsy take per sale?</h2>
+        <p>For a US shop, Etsy charges four kinds of fees on a sale. These are the same rates the calculator uses by default.</p>
+        <dl class="receipt fee-list">
+          <div class="receipt-row"><dt>Listing fee</dt><dd>$0.20</dd></div>
+          <div class="receipt-row"><dt>Transaction fee (item price + shipping + gift wrap)</dt><dd>6.5%</dd></div>
+          <div class="receipt-row"><dt>Payment processing (whole order total)</dt><dd>3% + $0.25</dd></div>
+          <div class="receipt-row"><dt>Offsite Ads (only on orders that come from one)</dt><dd>15% or 12%</dd></div>
+        </dl>
+        <p>The calculator adds these up as one percentage (6.5% + 3% = 9.5%) and one fixed fee ($0.20 + $0.25 = $0.45). Offsite Ads only apply to some orders, so it sets aside 3% for them instead of the full 15%.</p>
+
+        <h3 class="info-sub">Example: a $20 sale with free shipping</h3>
+        <dl class="receipt fee-list">
+          <div class="receipt-row"><dt>Listing fee</dt><dd>$0.20</dd></div>
+          <div class="receipt-row"><dt>Transaction fee: 6.5% × $20</dt><dd>$1.30</dd></div>
+          <div class="receipt-row"><dt>Payment processing: 3% × $20 + $0.25</dt><dd>$0.85</dd></div>
+          <div class="receipt-row receipt-received"><dt>Etsy takes</dt><dd>$2.35</dd></div>
+          <div class="receipt-row"><dt>Offsite Ads set-aside: 3% × $20</dt><dd>$0.60</dd></div>
+          <div class="receipt-row receipt-profit"><dt>You keep, before your own costs</dt><dd>$17.05</dd></div>
+        </dl>
+        <p>In the calculator's formula that is $20 × (9.5% + 3%) + $0.45 = $2.95 in fees. If that sale did come from an Offsite Ad, Etsy would take 15% ($3.00) on top of the $2.35.</p>
+      </section>
+
       <section class="card info-card" aria-labelledby="howto-title">
-        <h2 id="howto-title">How to price a product on Etsy</h2>
-        <p>Start from your costs, not from a guess. Add up what one sale costs you: materials, your time, packaging, shipping and a share of overhead. Add Etsy's fixed fees. Then divide by what's left after Etsy's percentage fees and your profit margin.</p>
-        <p class="formula">Price = (costs + fixed fees) ÷ (1 − percentage fees − margin)</p>
-        <p>Example: a wax melt pack costs $10.39 to make and ship. With $0.45 in fixed fees, 14.5% in percentage fees and a 30% margin: (10.39 + 0.45) ÷ 0.555 = $19.53. Sold at $10, it loses $2.29 on every sale. At $19.53 it keeps $5.86.</p>
+        <h2 id="howto-title">How this calculator works out your price</h2>
+        <p>It adds up what one sale costs you: materials, your time, packaging, shipping, overhead and any ad spend per sale, plus Etsy's $0.45 in fixed fees. It then divides that by what is left of each dollar after Etsy's percentage fees, the Offsite Ads set-aside, your refund allowance and the profit margin you want. If you charge buyers for shipping or run discounts, it adjusts for those too. The result is the lowest price that still leaves your target margin after every fee.</p>
+        <p class="formula">Price = (costs + fixed fees) ÷ (1 − percentage fees − refunds − margin)</p>
+        <p>Example: a wax melt pack costs $10.39 to make and ship. With $0.45 in fixed fees, 12.5% in fees, a 2% refund allowance and a 30% margin: (10.39 + 0.45) ÷ 0.555 = $19.53.</p>
       </section>
 
       <section class="card info-card" aria-labelledby="faq-title">
         <h2 id="faq-title">Frequently asked questions</h2>
         <div class="faq">
-          <h3>What fees does Etsy charge in the US?</h3>
-          <p>A $0.20 listing fee, a 6.5% transaction fee on the item price plus shipping and gift wrap, and payment processing of 3% + $0.25 on the order total. Offsite Ads take 15% of an order that comes from an Etsy ad on another site, or 12% once a shop has made $10,000 in the last 12 months, capped at $100 per order.</p>
-
           <h3>Does Etsy charge fees on shipping?</h3>
-          <p>Yes. The 6.5% transaction fee also applies to the shipping you charge, and payment processing applies to the whole order total.</p>
+          <p>Yes. The 6.5% transaction fee applies to the shipping you charge the buyer, and the 3% + $0.25 payment processing fee applies to the whole order total, shipping included. The calculator counts shipping charged to the buyer in the order total for this reason.</p>
 
-          <h3>Why does the calculator add a buffer for ads and refunds?</h3>
-          <p>Some sales come through Offsite Ads, and some orders get refunded. A small buffer keeps those sales from turning into losses.</p>
+          <h3>What are offsite ads fees?</h3>
+          <p>Etsy advertises listings on other sites, such as social networks and search engines. If a buyer clicks one of those ads and orders from your shop within 30 days, Etsy charges 15% of the order total, or 12% once your shop has made $10,000 or more in sales in the past 365 days. The fee is capped at $100 per order. Shops under $10,000 can opt out.</p>
 
-          <h3>What profit margin should I use?</h3>
-          <p>That's your choice. The example uses 30%, which means 30 cents of every dollar is profit after all costs and fees.</p>
+          <h3>Is the listing fee charged again when an item sells?</h3>
+          <p>Often, yes. If a listing has more than one item in stock, Etsy renews it for another $0.20 each time one sells. Listings also expire after four months and renew automatically for $0.20 unless you turn that off. The calculator counts $0.20 on every sale so this cost is covered.</p>
 
-          <h3>Is the calculator free? Is my data saved?</h3>
-          <p>Yes, it's free. Your numbers are saved only in your own browser and never leave your device.</p>
+          <h3>How do I price to make a profit on Etsy?</h3>
+          <p>Add up everything one sale costs you, including your time, add Etsy's fixed fees, then divide by what is left after Etsy's percentage fees, refunds and the margin you want. Enter your costs in the calculator above and it does this for you.</p>
 
-          <h3>Do these rates apply outside the US?</h3>
-          <p>No. Fees differ by country. Change the settings to your country's rates using <a href="https://www.etsy.com/legal/fees/" target="_blank" rel="noopener">Etsy's Fees &amp; Payments Policy</a>.</p>
+          <h3>Are these fees the same outside the US?</h3>
+          <p>No. The $0.20 listing fee and 6.5% transaction fee apply everywhere, but payment processing depends on where your bank account is (for example 4% + £0.20 in the UK and 4% + €0.30 in most EU countries). Some countries also add a regulatory operating fee, and VAT may be added to Etsy's fees. Change "Fee %" and "Fixed fee" in the settings to match your country.</p>
         </div>
+        <p class="helper fee-source">Source: <a href="https://www.etsy.com/legal/fees" target="_blank" rel="noopener">Etsy's fee page</a>. Rates checked on 4 November 2026.</p>
       </section>
 
       <!-- Shown only when VIDEO_ID is set (script at the bottom of this page) -->
@@ -351,6 +372,7 @@
             <span class="video-play" aria-hidden="true"></span>
           </button>
         </div>
+        <p class="video-watch"><a id="video-watch-link" href="https://www.youtube.com/watch?v=qESs1upqcWg" target="_blank" rel="noopener">Watch: how to price an Etsy product step by step</a></p>
         <p class="helper">The video loads from YouTube only when you press play.</p>
       </section>
 
@@ -386,6 +408,11 @@
       var box = document.getElementById('video-box');
       var facade = document.getElementById('video-facade');
       section.hidden = false;
+      // The "Watch: how to price..." link uses VIDEO_URL from config.js; no link there = no line here.
+      var watch = document.getElementById('video-watch-link');
+      var watchUrl = window.CONFIG && typeof CONFIG.VIDEO_URL === 'string' ? CONFIG.VIDEO_URL.trim() : '';
+      if (/^https?:\/\//i.test(watchUrl)) watch.href = watchUrl;
+      else watch.parentNode.parentNode.removeChild(watch.parentNode);
       document.getElementById('video-thumb').src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg';
       facade.addEventListener('click', function () {
         var frame = document.createElement('iframe');
@@ -403,9 +430,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Etsy price calculator",
+    "name": "Etsy Fee & Price Calculator (2026)",
     "url": "https://storeopsco.com/etsy-price-calculator/",
-    "description": "Free Etsy price calculator. Enter your costs and get the price that covers Etsy fees, shipping, your time and your profit margin. US 2026 rates.",
+    "description": "Free Etsy fee calculator for 2026. See exactly what Etsy takes per sale (listing, transaction, payment fees) and the price you need to make a profit.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Any",
     "offers": {
@@ -427,33 +454,28 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What fees does Etsy charge in the US?",
-        "acceptedAnswer": { "@type": "Answer", "text": "A $0.20 listing fee, a 6.5% transaction fee on the item price plus shipping and gift wrap, and payment processing of 3% + $0.25 on the order total. Offsite Ads take 15% of an order that comes from an Etsy ad on another site, or 12% once a shop has made $10,000 in the last 12 months, capped at $100 per order." }
-      },
-      {
-        "@type": "Question",
         "name": "Does Etsy charge fees on shipping?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The 6.5% transaction fee also applies to the shipping you charge, and payment processing applies to the whole order total." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The 6.5% transaction fee applies to the shipping you charge the buyer, and the 3% + $0.25 payment processing fee applies to the whole order total, shipping included. The calculator counts shipping charged to the buyer in the order total for this reason." }
       },
       {
         "@type": "Question",
-        "name": "Why does the calculator add a buffer for ads and refunds?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Some sales come through Offsite Ads, and some orders get refunded. A small buffer keeps those sales from turning into losses." }
+        "name": "What are offsite ads fees?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Etsy advertises listings on other sites, such as social networks and search engines. If a buyer clicks one of those ads and orders from your shop within 30 days, Etsy charges 15% of the order total, or 12% once your shop has made $10,000 or more in sales in the past 365 days. The fee is capped at $100 per order. Shops under $10,000 can opt out." }
       },
       {
         "@type": "Question",
-        "name": "What profit margin should I use?",
-        "acceptedAnswer": { "@type": "Answer", "text": "That's your choice. The example uses 30%, which means 30 cents of every dollar is profit after all costs and fees." }
+        "name": "Is the listing fee charged again when an item sells?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Often, yes. If a listing has more than one item in stock, Etsy renews it for another $0.20 each time one sells. Listings also expire after four months and renew automatically for $0.20 unless you turn that off. The calculator counts $0.20 on every sale so this cost is covered." }
       },
       {
         "@type": "Question",
-        "name": "Is the calculator free? Is my data saved?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, it's free. Your numbers are saved only in your own browser and never leave your device." }
+        "name": "How do I price to make a profit on Etsy?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Add up everything one sale costs you, including your time, add Etsy's fixed fees, then divide by what is left after Etsy's percentage fees, refunds and the margin you want. Enter your costs in the calculator above and it does this for you." }
       },
       {
         "@type": "Question",
-        "name": "Do these rates apply outside the US?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. Fees differ by country. Change the settings to your country's rates using Etsy's Fees & Payments Policy." }
+        "name": "Are these fees the same outside the US?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The $0.20 listing fee and 6.5% transaction fee apply everywhere, but payment processing depends on where your bank account is (for example 4% + £0.20 in the UK and 4% + €0.30 in most EU countries). Some countries also add a regulatory operating fee, and VAT may be added to Etsy's fees. Change \"Fee %\" and \"Fixed fee\" in the settings to match your country." }
       }
     ]
   }
