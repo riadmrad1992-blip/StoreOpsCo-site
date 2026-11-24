@@ -47,6 +47,9 @@ window.CONFIG = {
   // Used by the email sign-up box (signup-box.js). Empty = no sign-up button.
   EMAIL_SIGNUP_URL: "https://storeopsco.kit.com/a3fb02a7c9",
 
+  // Etsy's Terms of Use page, linked from the Dec 16 Shop Check (/check/).
+  ETSY_TERMS_URL: "https://www.etsy.com/legal/terms-of-use",
+
   // An email address people can write to, for example "hello@yourdomain.com".
   // Empty = no email shown in the footer.
   CONTACT_EMAIL: "",
