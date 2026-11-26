@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Shop Safety Kit for Etsy Sellers | StoreOpsCo</title>
+  <meta name="description" content="The back-office manual for when things go wrong on Etsy: Help with Order, cases, payout reserves, suspensions, appeals, hacked accounts, removed listings and the Dec 16 terms. Steps, messages to send and checklists.">
+  <link rel="canonical" href="https://storeopsco.com/kit/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StoreOpsCo">
+  <meta property="og:url" content="https://storeopsco.com/kit/">
+  <meta property="og:title" content="Shop Safety Kit for Etsy Sellers">
+  <meta property="og:description" content="What to do, what to send and what to check when things go wrong on Etsy. 11 chapters, 41 pages, every rule sourced to Etsy's own pages.">
+  <meta property="og:image" content="https://storeopsco.com/kit/kit-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0E141B">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Plus+Jakarta+Sans:wght@800&display=swap">
+  <style>
+    :root{--ground:#0E141B;--deep:#0A0E13;--surface:#151D27;--raised:#1B2531;--line:#26313D;--ink:#F3F1EC;--muted:#8C97A3;--signal:#F27A2E;--on-signal:#0E141B;--ledger:#2FBF71;--loss:#FF6B70;--caution:#F5A524;
+      --head:"Plus Jakarta Sans",Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--body:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color-scheme:dark}
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;background:var(--ground);color:var(--ink);font:500 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+    body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+      radial-gradient(60% 40% at 50% 0%,rgba(124,160,200,.14),transparent 70%),
+      radial-gradient(40% 35% at 100% 100%,rgba(242,122,46,.08),transparent 70%),
+      linear-gradient(rgba(243,241,236,.035) 1px,transparent 1px) 0 0/64px 64px,
+      linear-gradient(90deg,rgba(243,241,236,.035) 1px,transparent 1px) 0 0/64px 64px,
+      linear-gradient(180deg,var(--deep),var(--ground))}
+    h1,h2,h3{font-family:var(--head);font-weight:800;letter-spacing:-.02em;line-height:1.12;margin:0}
+    p{margin:0 0 1em}
+    a{color:inherit}
+    :focus-visible{outline:3px solid var(--signal);outline-offset:2px;border-radius:6px}
+    .wrap{max-width:760px;margin:0 auto;padding:0 16px}
+    header.top{padding:28px 0 8px}
+    .wm{font-family:var(--head);font-weight:800;letter-spacing:-.035em;font-size:22px;text-decoration:none;color:var(--ink)}
+    .wm span{color:var(--signal)}
+    .hero{padding:28px 0 20px}
+    .kicker{font:600 12.5px/1.3 var(--body);text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:0 0 12px}
+    .hero h1{font-size:clamp(30px,6vw,46px);margin:0 0 14px}
+    .hero h1 .sig{color:var(--signal)}
+    .lead{color:var(--muted);font-size:17px;max-width:58ch}
+    .card{background:linear-gradient(180deg,var(--raised),var(--surface));border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 50px -24px rgba(0,0,0,.8);padding:20px}
+    .progress{display:flex;align-items:center;gap:12px;margin:8px 0 16px;color:var(--muted);font-size:14px}
+    .bar{flex:1;height:6px;background:var(--line);border-radius:999px;overflow:hidden}
+    .bar i{display:block;height:100%;width:0;background:var(--signal);transition:width .25s}
+    ol.qs{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+    .q{padding:18px}
+    .q .tag{display:inline-block;font:700 12px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 10px;margin-bottom:10px}
+    .q h2{font:700 17px/1.45 var(--body);letter-spacing:0;margin:0 0 4px}
+    .q .hint{color:var(--muted);font-size:14.5px;margin:0 0 12px}
+    .opts{display:flex;flex-wrap:wrap;gap:10px;border:0;margin:0;padding:0}
+    .opts legend{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+    .opts label{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-weight:700;font-size:15px;user-select:none}
+    .opts input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+    .opts label:has(input:focus-visible){outline:3px solid var(--signal);outline-offset:2px}
+    .opts label:has(input[value="yes"]:checked){background:rgba(47,191,113,.16);border-color:var(--ledger);color:var(--ink)}
+    .opts label:has(input[value="no"]:checked){background:rgba(255,107,112,.14);border-color:var(--loss)}
+    .opts label:has(input[value="na"]:checked){background:rgba(140,151,163,.16);border-color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;font:700 16px/1 var(--body);text-decoration:none;border:1px solid transparent;cursor:pointer}
+    .btn.primary{background:var(--signal);color:var(--on-signal)}
+    .btn.primary:hover{background:#ff8a42}
+    .btn.primary[disabled]{opacity:.45;cursor:not-allowed}
+    .btn.secondary{background:var(--surface);color:var(--ink);border-color:var(--line)}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:22px 0 8px}
+    .actions small{color:var(--muted)}
+    #result{margin:28px 0}
+    .score{display:flex;align-items:baseline;gap:10px;margin:0 0 6px}
+    .score b{font:800 clamp(56px,14vw,88px)/1 var(--head);letter-spacing:-.04em;color:var(--signal);text-shadow:0 0 40px rgba(242,122,46,.45)}
+    .score span{font:800 28px/1 var(--head);color:var(--muted)}
+    .verdict{font:700 19px/1.4 var(--body);margin:0 0 18px}
+    .fixes{list-style:none;padding:0;margin:0 0 6px;display:grid;gap:12px}
+    .fix{border-left:4px solid var(--loss);padding:12px 14px;background:var(--surface);border-radius:0 12px 12px 0}
+    .fix strong{display:block;margin-bottom:4px}
+    .fix p{margin:0;color:var(--muted);font-size:15px}
+    .fix .src{font-size:13px;margin-top:6px}
+    .good{color:var(--ledger);font-weight:700}
+    .cta{margin-top:20px;border-left:4px solid var(--signal)}
+    .cta h2{font-size:22px;margin:0 0 8px}
+    .cta p{color:var(--muted)}
+    .cta small{display:block;margin-top:10px;color:var(--muted);font-size:13px}
+    .note{color:var(--muted);font-size:14px}
+    footer{padding:36px 0 48px;color:var(--muted);font-size:14px}
+    footer a{color:var(--muted)}
+    @media print{body::before{display:none}.actions,.cta{display:none}}
+  
+    .split{display:grid;gap:20px;align-items:center}
+    @media(min-width:760px){.split{grid-template-columns:1.1fr .9fr}}
+    .shot{width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 24px 50px -24px rgba(0,0,0,.8);display:block}
+    section.block{margin:34px 0}
+    section.block>h2{font-size:clamp(22px,4vw,30px);margin:0 0 14px}
+    .chapters{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+    .chapters li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+    .chapters b{display:block;font-size:16px;margin-bottom:2px}
+    .chapters span{color:var(--muted);font-size:15px}
+    .chapters small{color:var(--signal);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:11.5px;display:block;margin-bottom:4px}
+    .ticks{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+    .ticks li{padding-left:28px;position:relative}
+    .ticks li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:5px;background:rgba(47,191,113,.18);border:1.5px solid var(--ledger)}
+    .ticks.no li::before{background:rgba(255,107,112,.14);border-color:var(--loss)}
+    .price{text-align:center;border-left:0;border-top:4px solid var(--signal)}
+    .price .amt{font:800 64px/1 var(--head);letter-spacing:-.04em;color:var(--signal);text-shadow:0 0 40px rgba(242,122,46,.45);margin:8px 0}
+    .price .was{color:var(--muted);font-size:15px}
+    .price .btn{margin:16px auto 8px}
+    details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+    summary{cursor:pointer;font-weight:700}
+    details p{margin:10px 0 0;color:var(--muted)}
+    [hidden]{display:none!important}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top"><a class="wm" href="/">StoreOps<span>Co</span></a></header>
+
+    <section class="hero split">
+      <div>
+        <p class="kicker">Shop Safety Kit · Founding edition</p>
+        <h1>When something goes wrong on Etsy, <span class="sig">know exactly what to do.</span></h1>
+        <p class="lead">A case opens. Your money is held. Your shop is suspended. A listing disappears. This kit gives you the steps, the messages to send, and a checklist for each one, with every rule linked to Etsy's own pages.</p>
+        <div class="actions">
+          <a class="btn primary" href="#buy">Get the kit</a>
+          <a class="btn secondary" href="/check/">Take the free check first</a>
+        </div>
+      </div>
+      <img class="shot" src="kit-cover.jpg" width="900" height="1165" alt="Cover of the Shop Safety Kit for Etsy Sellers">
+    </section>
+
+    <section class="block">
+      <h2>What's inside</h2>
+      <ol class="chapters">
+        <li><small>Chapter 0</small><b>The December 16 terms</b><span>The 4 rules in Etsy's new Terms of Use that apply to every shop, and a 6-step to-do list.</span></li>
+        <li><small>Chapter 1</small><b>The 48-hour rule</b><span>Help with Order requests, Etsy's four customer service standards, and the replies to send.</span></li>
+        <li><small>Chapter 2</small><b>When a buyer opens a case</b><span>How cases work, refund or defend, and the replies to send inside the case.</span></li>
+        <li><small>Chapter 3</small><b>Payout holds and reserves</b><span>Why Etsy holds money, how it's released, where to see it, and how to get a reserve lifted.</span></li>
+        <li><small>Chapter 4</small><b>Suspended: the first 24 hours</b><span>Is it really a suspension, what you can still do, and what to save before anything else.</span></li>
+        <li><small>Chapter 5</small><b>Permanent suspension and appeals</b><span>The rules of an appeal, what to fix first, and an appeal writing template.</span></li>
+        <li><small>Chapter 6</small><b>Hacked or locked out</b><span>Spotting fake Etsy messages, what to do in the first hour, and what to check after.</span></li>
+        <li><small>Chapter 7</small><b>Listing removed by Etsy</b><span>Where to see removals, evidence that works in an appeal, and intellectual property claims.</span></li>
+        <li><small>Chapter 8</small><b>The 20-point shop safety audit</b><span>Account, listings, orders and customer service, scored, with an audit log.</span></li>
+        <li><small>Chapter 9</small><b>Shop policies that protect you</b><span>Returns, cancellations, privacy and custom orders, set up the way Etsy expects.</span></li>
+        <li><small>Chapter 10</small><b>The 15-minute monthly check</b><span>A short routine that catches problems before Etsy does.</span></li>
+      </ol>
+    </section>
+
+    <section class="block split">
+      <img class="shot" src="kit-sample.jpg" width="900" height="1165" alt="A sample page from Chapter 1: The 48-hour rule" loading="lazy">
+      <div>
+        <h2>Every page works the same way</h2>
+        <ul class="ticks">
+          <li><b>In one line:</b> the rule you need, first.</li>
+          <li><b>Sources checked:</b> the Etsy pages each chapter is based on, with the date.</li>
+          <li><b>What to do:</b> steps in order, in plain English.</li>
+          <li><b>Messages to send:</b> ready to copy and adjust.</li>
+          <li><b>What not to do</b> and a <b>checklist</b> to tick off.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Who it's for</h2>
+      <ul class="ticks">
+        <li>Etsy sellers who want a plan before something goes wrong, not after.</li>
+        <li>Sellers dealing with a case, a payout hold or a suspension right now.</li>
+        <li>Sellers who use tools or AI and want to stay inside Etsy's new terms.</li>
+      </ul>
+      <h2 style="margin-top:22px;font-size:20px">What it isn't</h2>
+      <ul class="ticks no">
+        <li>Not legal advice, and not a way to get around Etsy's rules.</li>
+        <li>Not affiliated with or endorsed by Etsy. It can't guarantee any outcome.</li>
+      </ul>
+    </section>
+
+    <section class="block" id="buy">
+      <div class="card price">
+        <p class="kicker">Founding price</p>
+        <div class="amt">$39</div>
+        <p class="was" id="price-note">For the first 20 buyers, until December 16, 2026.</p>
+        <p>PDF, 41 pages, 11 chapters. Instant download after payment.</p>
+        <a class="btn primary" id="buy-btn" href="#" target="_blank" rel="noopener" hidden>Buy with PayPal</a>
+        <div id="soon">
+          <a class="btn primary" id="soon-btn" href="#" target="_blank" rel="noopener" hidden>Opens December 10: join the list</a>
+          <p class="note" id="soon-note">Opens December 10. People on the StoreOpsCo email list hear first.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Questions</h2>
+      <details><summary>What format is it?</summary><p>A PDF you can read on any phone, tablet or computer, and print. The checklists are made to be printed and ticked.</p></details>
+      <details><summary>How do I get it after paying?</summary><p>Right after payment you get a download link.</p></details>
+      <details><summary>Is it up to date?</summary><p>Each chapter shows the date its Etsy sources were checked. Chapter 0 covers the Terms of Use that start on December 16, 2026.</p></details>
+      <details id="refund-q" hidden><summary>What if it isn't for me?</summary><p id="refund-text"></p></details>
+      <details><summary>Is this from Etsy?</summary><p>No. StoreOpsCo is independent and not affiliated with or endorsed by Etsy. Etsy's own policies always come first.</p></details>
+    </section>
+
+    <p class="note">Not affiliated with or endorsed by Etsy. Not legal advice.</p>
+    <footer>
+      <a href="/">StoreOpsCo home</a> · <a href="/check/">Free Dec 16 Shop Check</a> · <a href="/guides/etsy-terms-dec-16/">Dec 16 terms guide</a> · <a href="/privacy/">Privacy</a>
+    </footer>
+  </div>
+  <script src="../config.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var c = window.CONFIG || {};
+    function ok(u) { return typeof u === 'string' && /^https:\/\/\S+$/i.test(u.trim()); }
+    if (ok(c.KIT_BUY_URL)) {
+      var b = document.getElementById('buy-btn'); b.href = c.KIT_BUY_URL.trim(); b.hidden = false;
+      document.getElementById('soon').hidden = true;
+    } else if (ok(c.EMAIL_SIGNUP_URL)) {
+      var s = document.getElementById('soon-btn'); s.href = c.EMAIL_SIGNUP_URL.trim(); s.hidden = false;
+      document.getElementById('soon-note').hidden = true;
+    }
+    if (typeof c.KIT_REFUND_TEXT === 'string' && c.KIT_REFUND_TEXT.trim()) {
+      document.getElementById('refund-text').textContent = c.KIT_REFUND_TEXT.trim();
+      document.getElementById('refund-q').hidden = false;
+    }
+  })();
+  </script>
+</body>
+</html>

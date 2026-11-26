@@ -47,6 +47,14 @@ window.CONFIG = {
   // Used by the email sign-up box (signup-box.js). Empty = no sign-up button.
   EMAIL_SIGNUP_URL: "https://storeopsco.kit.com/a3fb02a7c9",
 
+  // Shop Safety Kit (/kit/). Paste the PayPal checkout link here on launch day.
+  // Empty = the page shows "Opens December 10" and the email sign-up instead.
+  KIT_BUY_URL: "",
+
+  // One sentence about refunds for the kit page, e.g. "Email us within 14 days for a full refund."
+  // Empty = the refund question is hidden.
+  KIT_REFUND_TEXT: "",
+
   // Etsy's Terms of Use page, linked from the Dec 16 Shop Check (/check/).
   ETSY_TERMS_URL: "https://www.etsy.com/legal/terms-of-use",
 
